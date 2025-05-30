@@ -1,0 +1,19 @@
+<!--? extends form base.html -->
+{% extends "base.html" %}
+
+<!--? load static -->
+{% load static %}
+
+<!--? Title -->
+{% block title %} About {% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+            <h1 class="display-5 fw-bold mb-3">About This Project</h1>
+            <p class="lead mb-4">This message board was created as a mini challenge to practice Django and Bootstrap. The goal is to provide a simple, modern platform for sharing ideas and connecting with others.</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

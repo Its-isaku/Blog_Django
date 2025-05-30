@@ -1,0 +1,20 @@
+<!--? extends form base.html -->
+{% extends "base.html" %}
+
+<!--? load static -->
+{% load static %}
+
+<!--? Title -->
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+            <h1 class="display-4 fw-bold mb-3">Welcome to the Message Board!</h1>
+            <p class="lead mb-4">Share your thoughts, connect with others, and be part of our community. This is a simple Django application styled with Bootstrap for a modern look and feel.</p>
+            <a href="{% url 'about' %}" class="btn btn-primary btn-lg me-2">Learn More</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

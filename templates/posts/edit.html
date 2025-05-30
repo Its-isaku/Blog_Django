@@ -1,0 +1,21 @@
+<!--? Extends from base -->
+{% extends 'base.html' %}
+
+<!--? Block title -->
+{% block title %}Edit Post{% endblock title %}
+
+<!--? Block content -->
+{% block content %}
+
+    <h1>Edit Post</h1>
+    <p>You are editing post: "{{ post.title }}"</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-danger" value="Confirm">
+    </form>
+
+{% endblock content %}
+
+<!--! Not sure how to do edit -->

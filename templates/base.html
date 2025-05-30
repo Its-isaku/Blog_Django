@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Mini Challange</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Blog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,9 +26,18 @@
 
                     <!--* Nav links -->
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
-                    <a class="nav-link" href="">Posts</a>
-                    <a class="nav-link" href="">accounts</a>
                     <a class="nav-link" href="{% url 'about' %}">About</a>
+                    <a class="nav-link" href="{% url 'list' %}">posts</a>
+
+                    {% if user.is_authenticated %}
+                        <form method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <input type="submit" class="nav-link" value="Logout">
+                        </form>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+                        <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                    {% endif %}
                 
                 </div>
             </div>

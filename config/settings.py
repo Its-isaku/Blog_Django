@@ -124,3 +124,6 @@ STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))] #* Directory for custom st
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'home'   #* Redirect URL after login
+LOGOUT_REDIRECT_URL = 'home'  #* Redirect URL after logout

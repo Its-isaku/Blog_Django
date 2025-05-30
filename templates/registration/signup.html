@@ -1,0 +1,19 @@
+<!--? Extends from base  -->
+{% extends "base.html" %}
+
+<!--? Load static -->
+{% load static %}
+
+<!--? Title -->
+{% block title %}Sign Up{% endblock title %}
+
+<!--? content -->
+{% block content %}
+    <h1>Sign Up</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Sign Up">
+    </form> 
+{% endblock content %}

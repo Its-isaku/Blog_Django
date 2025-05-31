@@ -2,29 +2,47 @@
 {% extends 'base.html' %}
 
 <!--? Block title -->
-{% block title %} Post {% endblock title %}
+{% block title %} Posts {% endblock title %}
 
 <!--? Block content -->
 {% block content %}
 
+<!--* Enhanced header section with modern styling -->
+<div class="posts-header">
     <h1>Posts</h1>
-    <a href=" {% url 'create' %} " class="card-link">Create post</a>
+    <a href="{% url 'create' %}" class="create-post-btn">Create Post</a>
+</div>
 
-    <!--* for loop to iterate over the posts -->
-    {% for post in post_list %}
+<!--? for loop to iterate over the posts -->
+{% for post in post_list %}
+    <!--* Enhanced post card with modern design -->
+    <div class="post-card card">
+        <div class="card-body">
+            <!--? Post title and author section -->
+            <div class="post-title-section">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="post-author">{{ post.author }}</p>
+            </div>
+            
+            <!--* Post subtitle -->
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.subtitle }}</h6>
+            
+            <!--? Post content preview -->
+            <p class="card-text">{{ post.body | truncatechars:128 }}</p>
 
-
-
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ post.title }} <p> {{ post.author }}</p></h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.subtitle }}</h6>
-                <p class="card-text">{{ post.body | truncatechars:128 }}</p>
-
-                <a href=" {% url 'edit' post.id %} " class="card-link">Edit post</a>
-                <a href=" {% url 'delete' post.id %} " class="card-link">Delete post</a>
+            <!--* Action buttons with enhanced styling -->
+            <div class="post-actions">
+                <a href="{% url 'details' post.id %}" class="card-link">Detail Post</a>
             </div>
         </div>
-    {% endfor %}
+    </div>
+{% empty %}
+    <!--? Empty state when no posts exist -->
+    <div class="empty-posts">
+        <h3>No posts yet</h3>
+        <p>Be the first to create a post and start the conversation!</p>
+        <a href="{% url 'create' %}" class="create-post-btn">Create Your First Post</a>
+    </div>
+{% endfor %}
 
 {% endblock content %}

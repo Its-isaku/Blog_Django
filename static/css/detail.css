@@ -1,0 +1,239 @@
+/* 
+? Detail page specific styles
+* Clean post display with modern design
+*/
+
+/* ! Detail page container */
+.detail-container {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.05) 0%, rgba(0, 242, 254, 0.05) 100%);
+    border-radius: var(--border-radius-xl);
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* ? Post title styling */
+.detail-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+/* * Post subtitle styling */
+.detail-subtitle {
+    font-size: 1.4rem;
+    color: var(--gray-600);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* ? Post metadata styling */
+.detail-meta {
+    background: rgba(79, 172, 254, 0.1);
+    border-left: 4px solid #4facfe;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.detail-meta strong {
+    color: var(--dark-color);
+}
+
+/* * Post content styling */
+.detail-content {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    line-height: 1.8;
+    color: var(--gray-800);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) 1;
+}
+
+/* ? Go back button styling */
+.go-back-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--gray-700);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-300);
+    font-size: 0.9rem;
+}
+
+.go-back-btn:hover {
+    background: var(--gray-100);
+    color: var(--gray-800);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.go-back-btn::before {
+    content: '← ';
+    margin-right: 0.5rem;
+}
+
+/* * Detail page action buttons */
+.detail-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.detail-actions .btn {
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-lg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+}
+
+.detail-actions .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+    color: white;
+    border: none;
+}
+
+.detail-actions .btn-warning:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+}
+
+.detail-actions .btn-danger {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+}
+
+.detail-actions .btn-danger:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(240, 147, 251, 0.3);
+}
+
+/* ? No access message styling */
+.no-access-message {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(108, 117, 125, 0.1);
+    border-radius: var(--border-radius-lg);
+    color: var(--gray-600);
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+/* * Animation for detail content */
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.detail-container {
+    animation: slideInFromBottom 0.6s ease-out;
+}
+
+/* ? Decorative elements */
+.detail-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(0, 242, 254, 0.2) 100%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.detail-container::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.3) 0%, rgba(0, 242, 254, 0.3) 100%);
+    border-radius: 30%;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+/* ? Responsive design for detail page */
+@media (max-width: 768px) {
+    .detail-container {
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+    }
+    
+    .detail-title {
+        font-size: 2rem;
+    }
+    
+    .detail-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .detail-content {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .detail-meta {
+        padding: 0.8rem 1rem;
+    }
+    
+    .detail-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .detail-actions .btn {
+        width: 100%;
+    }
+    
+    .go-back-btn {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-bottom: 1rem;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

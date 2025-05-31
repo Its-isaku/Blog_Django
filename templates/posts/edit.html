@@ -7,15 +7,28 @@
 <!--? Block content -->
 {% block content %}
 
-    <h1>Edit Post</h1>
-    <p>You are editing post: "{{ post.title }}"</p>
-    
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" class="btn btn-danger" value="Confirm">
-    </form>
+<!--* Form container with modern styling -->
+<div class="form-container">
+    <div class="form-wrapper edit-form">
+        <!--? Form header with edit styling -->
+        <div class="form-header">
+            <h1>Edit Post</h1>
+        </div>
+        
+        <!--* Form body with info message -->
+        <div class="form-body">
+            <!--? Information about current editing -->
+            <div class="edit-info">
+                You are editing post: "<strong>{{ post.title }}</strong>"
+            </div>
+            
+            <form method="POST" class="enhanced-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-warning" value="Update Post">
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
-
-<!--! Not sure how to do edit -->

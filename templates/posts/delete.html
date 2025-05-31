@@ -7,12 +7,32 @@
 <!--? Block content -->
 {% block content %}
 
-    <h1>Delete Post</h1>
-    <p>Are you sure you'd like to delete this post: "{{ post.title }}"?</p>
-    
-    <form method="POST">
-        {% csrf_token %}
-        <input type="submit" class="btn btn-danger" value="Confirm">
-    </form>
+<!--* Form container with modern styling -->
+<div class="form-container">
+    <div class="form-wrapper delete-form">
+        <!--? Form header with delete styling -->
+        <div class="form-header">
+            <h1>Delete Post</h1>
+        </div>
+        
+        <!--* Form body with warning message -->
+        <div class="form-body">
+            <!--? Warning about deletion -->
+            <div class="delete-warning">
+                Are you sure you'd like to delete this post: "<strong>{{ post.title }}</strong>"?
+                <br><small>This action cannot be undone.</small>
+            </div>
+            
+            <!--* Buttons container outside the form -->
+            <div class="delete-buttons">
+                <form method="POST" style="display: contents;">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-danger" value="Confirm Delete">
+                </form>
+                <a href="{% url 'list' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}

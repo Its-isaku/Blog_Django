@@ -1,0 +1,52 @@
+<!--? Extends from base -->
+{% extends 'base.html' %}
+
+<!--? load static -->
+{% load static %}
+
+<!--? Block title -->
+{% block title %}{{ post.title }}{% endblock title %}
+
+<!--? Block content -->
+{% block content %}
+
+    <!--* Detail page container with modern styling -->
+    <div class="detail-container">
+        <!--? Go back button -->
+        <a href="{% url 'list' %}" class="go-back-btn">Back to Posts</a>
+        
+        <!--* Post content -->
+        <!--? Post title -->
+        <h1 class="detail-title">{{ post.title }}</h1>
+        
+        <!--* Post subtitle -->
+        <h3 class="detail-subtitle">{{ post.subtitle }}</h3>
+        
+        <!--? Post metadata -->
+        <div class="detail-meta">
+            <strong>Author:</strong> {{ post.author }} | <strong>Created on:</strong> {{ post.created_on|date:"F d, Y" }}
+        </div>
+        
+        <!--* Post content -->
+        <div class="detail-content">
+            {{ post.body|linebreaks }}
+        </div>
+
+        <!--? Action buttons (only for post author and only on detail page) -->
+        {% if user.is_authenticated and user.username == post.author.username %}
+            <div class="detail-actions">
+                <a class="btn btn-warning" href="{% url 'edit' post.id %}">Edit Post</a>
+                <a class="btn btn-danger" href="{% url 'delete' post.id %}">Delete Post</a>
+            </div>
+        {% elif user.is_authenticated %}
+            <div class="no-access-message">
+                <p>You can only edit or delete your own posts.</p>
+            </div>
+        {% else %}
+            <div class="no-access-message">
+                <p><a href="{% url 'login' %}">Log in</a> to edit or delete posts.</p>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock content %}

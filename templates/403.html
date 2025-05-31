@@ -1,0 +1,28 @@
+<!--? Extends from base -->
+{% extends 'base.html' %}
+
+<!--? load static -->
+{% load static %}
+
+<!--? Block title -->
+{% block title %} Forbidden (403) {% endblock title %}
+
+<!--? Block content -->
+{% block content %}
+
+    <!--* 403 Forbidden page container with modern styling -->
+    <div class="forbidden-container">
+        <!--? Go back button -->
+        <a href="{% url 'list' %}" class="go-back-btn">Back to Posts</a>
+
+        <!--* 403 Forbidden message -->
+        <h1 class="forbidden-title">403 Forbidden</h1>
+        <p class="forbidden-message">You do not have permission to access this page.</p>
+
+        <!--? Action buttons -->
+        {% if user.is_authenticated %}
+            <p class="forbidden-action">Please contact the site administrator if you believe this is an error.</p>
+        {% endif %}
+    </div>
+
+{% endblock content %}

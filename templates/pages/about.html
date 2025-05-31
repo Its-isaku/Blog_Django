@@ -8,11 +8,26 @@
 {% block title %} About {% endblock title %}
 
 {% block content %}
-<div class="container py-5">
+<!--* Enhanced about container with modern styling -->
+<div class="about-container">
     <div class="row align-items-center">
         <div class="col-md-6 text-center text-md-start">
+            <!--? Main heading with gradient styling and underline -->
             <h1 class="display-5 fw-bold mb-3">About This Project</h1>
+            
+            <!--* Descriptive text with better formatting -->
             <p class="lead mb-4">This message board was created as a mini challenge to practice Django and Bootstrap. The goal is to provide a simple, modern platform for sharing ideas and connecting with others.</p>
+            
+            <!--? Additional information in card format -->
+            <div class="info-card">
+                <h5>Technologies Used</h5>
+                <ul class="feature-list">
+                    <li>Django Framework for backend development</li>
+                    <li>Bootstrap 5 for responsive design</li>
+                    <li>Modern CSS with gradients and animations</li>
+                    <li>User authentication and authorization</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

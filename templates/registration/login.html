@@ -1,4 +1,3 @@
-
 <!--? extends form base -->
 {% extends "base.html" %}
 
@@ -10,13 +9,29 @@
 
 <!--? block content -->
 {% block content %}
-    <h1>Log in</h1>
 
-    <form method="POST">
-        {% csrf_token %}    <!--* Protects against Cross-Site Request Forgery attacks --> 
-        {{ form.as_p }}     <!--* Renders the form fields as <p> elements for easy display in HTML -->
-        <input type="submit" class="btn btn-success" value="Log in">
-    </form>
+<!--* Authentication form container -->
+<div class="form-container">
+    <div class="form-wrapper auth-form">
+        <!--? Form header with auth styling -->
+        <div class="form-header">
+            <h1>Log In</h1>
+        </div>
+        
+        <!--* Form body -->
+        <div class="form-body">
+            <form method="POST" class="enhanced-form">
+                {% csrf_token %}    <!--* Protects against Cross-Site Request Forgery attacks -->
+                {{ form.as_p }}     <!--* Renders the form fields as <p> elements for easy display in HTML -->
+                <input type="submit" class="btn btn-success" value="Log In">
+            </form>
+            
+            <!--? Link to signup page -->
+            <div class="auth-link">
+                <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
 {% endblock content %}

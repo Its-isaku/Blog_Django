@@ -1,0 +1,155 @@
+/* 
+? About page specific styles
+* Professional and informative design
+*/
+
+/* ! About page container */
+.about-container {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
+    border-radius: var(--border-radius-xl);
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* ? About page heading */
+.display-5 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* * Add decorative underline to heading */
+.display-5::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 2px;
+}
+
+/* ? About page text styling */
+.about-container .lead {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--gray-700);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+/* * Info cards for about section */
+.info-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) 1;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ? Decorative background elements */
+.about-container::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(0, 242, 254, 0.2) 100%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.about-container::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.3) 0%, rgba(0, 242, 254, 0.3) 100%);
+    border-radius: 30%;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+/* * Animation for about content */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.about-container .col-md-6 {
+    animation: slideInFromRight 1s ease-out;
+}
+
+/* ? Feature highlights */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4facfe;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ? Responsive design for about page */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+    }
+    
+    .display-5 {
+        font-size: 2.2rem;
+    }
+    
+    .about-container .lead {
+        font-size: 1.1rem;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+        margin: 0.5rem 0;
+    }
+}

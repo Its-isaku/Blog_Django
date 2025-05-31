@@ -5,6 +5,7 @@ from .views import (
     PostCreateView,
     PostUpdateView,
     PostDeleteView,
+    PostDetailView
 )
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
     path('create/', PostCreateView.as_view(), name='create'),            #* Create a new post
     path('edit/<int:pk>/', PostUpdateView.as_view(), name='edit'),       #* Edit an existing post
     path('delete/<int:pk>/', PostDeleteView.as_view(), name='delete'),   #* Delete a post
+    path('details/<int:pk>/', PostDetailView.as_view(), name='details'),  #* Details a post
 ]

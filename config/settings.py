@@ -127,3 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'   #* Redirect URL after login
 LOGOUT_REDIRECT_URL = 'home'  #* Redirect URL after logout
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  #* Email backend for development

@@ -58,6 +58,11 @@
 
                     <!--* Conditional authentication links -->
                     {% if user.is_authenticated %}
+                        <!--? Links  -->
+                        <a class="nav-link" href="{% url 'create' %}">New Post</a>
+                        <a class="nav-link" href="{% url 'drafts' %}">My Drafts</a>
+                        <a class="nav-link" href="{% url 'archive' %}">My Archived</a>
+                        <a class="nav-link" href="{% url 'password_change' %}">Change password</a>
                         <!--? Logout form (styled as nav link) -->
                         <form method="POST" action="{% url 'logout' %}" class="navbar-logout-form">
                             {% csrf_token %}
@@ -67,6 +72,8 @@
                         <!--? Authentication links for non-logged users -->
                         <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
                         <a class="nav-link" href="{% url 'login' %}">Log in</a>
+
+                        <a class="nav-link" href="{% url 'password_reset' %}">Reset password</a>
                     {% endif %}
                 </div>
             </div>

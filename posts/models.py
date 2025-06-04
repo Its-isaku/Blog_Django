@@ -5,7 +5,7 @@ from django.urls import reverse
 #?  
 class Status(models.Model):
     name = models.CharField(max_length=64)               #* Name of the status
-    description = models.CharField(max_length=256)        #* Description of the status
+    description = models.CharField(max_length=256)       #* Description of the status
     
     def __str__(self):
         return self.name                                 #* String representation of the status, returns the name
